@@ -33,9 +33,10 @@ class EmailNotification:
         return Template(template_file_content)
 
     def notify_by_email(self, email_address, email_password, email_subject="Data at your request is available!",
-                        message_to_send="sample text"):
+                        message_to_send="sample text", greeting_name="Sir/Madam"):
         # Reference: https://www.freecodecamp.org/news/send-emails-using-code-4fcea9df63f/.
-        names, emails = self.get_contacts()
+        # names, emails = self.get_contacts()
+        names, emails = [greeting_name], [email_address]
         message_template = self.read_template()
 
         # Set up the SMTP server.

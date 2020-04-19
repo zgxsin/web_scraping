@@ -11,6 +11,7 @@ install_requires = [
       'bs4',
       'feedparser',
       'pprint',
+      'lxml'
 ]
 
 here = os.path.abspath(os.path.dirname(__file__))

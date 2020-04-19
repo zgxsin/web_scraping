@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas
+import lxml
 
 
 def parse_single_url(url):
@@ -10,4 +11,4 @@ def parse_single_url(url):
 
 
 def print_pandas_data(pandas_data):
-    print (pandas_data.to_string())
+    print(pandas_data.to_string())
