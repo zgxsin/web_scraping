@@ -1,2 +1,2 @@
-# web_scraping
-This is an example script for web scraping.
+# ETH Room Web Scraping
+This is a program for ETH room web scraping.

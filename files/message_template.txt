@@ -1,7 +1,0 @@
-Dear ${PERSON_NAME},
-
-Here is the data available at your request:
-${CONTENTS}
-
-Best,
-Guoxiang Zhou
