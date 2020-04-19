@@ -20,7 +20,7 @@ def main():
     my_parser.add_argument('-n', '--name', help='The greeting name that will appear in your email', default="Sir/Madam")
     
     my_parser.add_argument('-e', '--email', help='The email address you would like to use for receiving data.'
-                                                 '(Only gmail is supported currently)', required=True)
+                                                 '(Only Gmail is supported currently)', required=True)
     my_parser.add_argument('-p', '--password', help='The password of your provided email address', required=True)
     my_parser.add_argument('-f', '--frequency', help='The frequency of web scraping (Hz)', default="0.2", type=float)
     my_args = my_parser.parse_args()
@@ -61,4 +61,5 @@ def main():
 
 
 if __name__ == '__main__':
+    # todo: add test code for checking this module here.
     main()
