@@ -29,7 +29,7 @@ image-geometry==1.13.0
 interactive-markers==1.11.4
 joint-state-publisher==1.12.15
 laser-geometry==1.6.4
-lxml==4.5.0
+lxml==4.6.2
 message-filters==1.14.5
 navigation-pose-graph-editor==0.2.0
 numpy==1.18.2
