@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 url = "http://news.google.com/news?q=covid-19&hl=en-US&sort=date&gl=US&num=100&output=rss"
 
+
 class ParseFeed:
 
     def __init__(self, url):
@@ -32,6 +33,7 @@ class ParseFeed:
                 'Title': f.get("title", ""),
                 'Url': f.get("link", "")
             })
+
 
 feed = ParseFeed(url)
 feed.parse()

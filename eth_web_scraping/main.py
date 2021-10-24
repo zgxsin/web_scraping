@@ -10,19 +10,23 @@ to this file first: chmod +x main.py
 
 '''
 
+
 def main():
     """Entry point for the application script"""
     # formatter_class=argparse.ArgumentDefaultsHelpFormatter will display the default values of your arguments.
     my_parser = argparse.ArgumentParser(
         description="Do web scraping for available rooms from Student Village and Living Science",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    
-    my_parser.add_argument('-n', '--name', help='The greeting name that will appear in your email', default="Sir/Madam")
-    
+
+    my_parser.add_argument(
+        '-n', '--name', help='The greeting name that will appear in your email', default="Sir/Madam")
+
     my_parser.add_argument('-e', '--email', help='The email address you would like to use for receiving data.'
                                                  '(Only Gmail is supported currently)', required=True)
-    my_parser.add_argument('-p', '--password', help='The password of your provided email address', required=True)
-    my_parser.add_argument('-f', '--frequency', help='The frequency of web scraping (Hz)', default="0.2", type=float)
+    my_parser.add_argument(
+        '-p', '--password', help='The password of your provided email address', required=True)
+    my_parser.add_argument(
+        '-f', '--frequency', help='The frequency of web scraping (Hz)', default="0.2", type=float)
     my_args = my_parser.parse_args()
 
     eth_room_search_obj = ETHRoomSearch()
@@ -39,7 +43,8 @@ def main():
         sv_html_segments = eth_room_search_obj.filter_entries_from_sv_url()
         ls_html_segments = eth_room_search_obj.filter_entries_from_ls_url()
 
-        pandas_data_sv_to_string = eth_room_search_obj.organize_sv_data(sv_html_segments).to_string()
+        pandas_data_sv_to_string = eth_room_search_obj.organize_sv_data(
+            sv_html_segments).to_string()
         if pandas_data_sv_to_string != old_pandas_data_sv_to_string:
             old_pandas_data_sv_to_string = pandas_data_sv_to_string
             email_notification_obj.notify_by_email(email_address=my_args.email, email_password=my_args.password,
@@ -47,7 +52,8 @@ def main():
                                                    message_to_send=old_pandas_data_sv_to_string, greeting_name=my_args.name)
             print(pandas_data_sv_to_string + '\n\n')
 
-        pandas_data_ls_to_string = eth_room_search_obj.organize_ls_data(ls_html_segments).to_string()
+        pandas_data_ls_to_string = eth_room_search_obj.organize_ls_data(
+            ls_html_segments).to_string()
         if pandas_data_ls_to_string != old_pandas_data_ls_to_string:
             old_pandas_data_ls_to_string = pandas_data_ls_to_string
             email_notification_obj.notify_by_email(email_address=my_args.email, email_password=my_args.password,
